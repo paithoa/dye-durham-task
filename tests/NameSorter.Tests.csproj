@@ -11,8 +11,8 @@
   </ItemGroup>
   
   
-  <!-- <ItemGroup>
-    <ProjectReference Include="../../NameSorter.csproj" />
-  </ItemGroup> -->
+  <ItemGroup>
+    <ProjectReference Include="../src/NameSorter.csproj" />
+  </ItemGroup>
 
 </Project>

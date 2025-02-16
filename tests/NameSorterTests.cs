@@ -1,19 +1,9 @@
 using Xunit;
 using System.Collections.Generic;
-using System.Linq;
 
 public class NameSorterTests
 {
-    private List<string> SortNames(List<string> names)
-    {
-        return names.OrderBy(name =>
-        {
-            var parts = name.Split(' ');
-            var lastName = parts[^1];
-            var givenNames = string.Join(" ", parts[..^1]);
-            return (lastName, givenNames);
-        }).ToList();
-    }
+    private readonly NameSorter _nameSorter = new NameSorter(); // ✅ Use the actual class
 
     [Fact]
     public void SortNames_ShouldSortNamesCorrectly()
@@ -50,7 +40,7 @@ public class NameSorterTests
         };
 
         // Act
-        var sortedNames = SortNames(unsortedNames);
+        var sortedNames = _nameSorter.SortNames(unsortedNames);
 
         // Assert
         Assert.Equal(expectedSortedNames, sortedNames);
@@ -64,7 +54,7 @@ public class NameSorterTests
         var expected = new List<string> { "John Doe" };
 
         // Act
-        var sorted = SortNames(input);
+        var sorted = _nameSorter.SortNames(input);
 
         // Assert
         Assert.Equal(expected, sorted);
@@ -88,7 +78,7 @@ public class NameSorterTests
         };
 
         // Act
-        var sorted = SortNames(input);
+        var sorted = _nameSorter.SortNames(input);
 
         // Assert
         Assert.Equal(expected, sorted);
@@ -107,7 +97,7 @@ public class NameSorterTests
         var expected = new List<string>(input);
 
         // Act
-        var sorted = SortNames(input);
+        var sorted = _nameSorter.SortNames(input);
 
         // Assert
         Assert.Equal(expected, sorted);
@@ -131,7 +121,7 @@ public class NameSorterTests
         };
 
         // Act
-        var sorted = SortNames(input);
+        var sorted = _nameSorter.SortNames(input);
 
         // Assert
         Assert.Equal(expected, sorted);
@@ -145,7 +135,7 @@ public class NameSorterTests
         var expected = new List<string>();
 
         // Act
-        var sorted = SortNames(input);
+        var sorted = _nameSorter.SortNames(input);
 
         // Assert
         Assert.Equal(expected, sorted);
@@ -169,7 +159,7 @@ public class NameSorterTests
         };
 
         // Act
-        var sorted = SortNames(input);
+        var sorted = _nameSorter.SortNames(input);
 
         // Assert
         Assert.Equal(expected, sorted);
