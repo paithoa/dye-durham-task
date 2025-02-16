@@ -14,4 +14,4 @@ Run:
 dotnet test
 
 ## Requirements
-- .NET Core SDK 6+
+- .NET Core SDK 8+
